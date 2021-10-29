@@ -20,7 +20,7 @@ Use prompt() to get input from the user
 to measure the distribution of random draws
 
 let x = [];
-let (var i = 0; i < 5000; i ++) {
+let (let i = 0; i < 5000; i ++) {
 	x[i] = Math.floor(Math.random()*3);
 }
 
@@ -36,9 +36,9 @@ Plotly.newPlot('myDiv', data);
 const returnChoice = function(choice) {
     let options = ['rock', 'paper', 'scissors'];
     let weapon;
-    if (choice == 0 || choice == 1 || choice == 2) {
+    if (choice === 0 || choice === 1 || choice === 2) {
         weapon = options[choice];
-        console.log(weapon);
+        //console.log(weapon);
     }else {
         weapon = options[Math.floor(Math.random()*3)]; // *3 since index 0-2
     };
@@ -48,9 +48,41 @@ const returnChoice = function(choice) {
     //return option[randomChoice];
 };
 
-console.log(returnChoice());
+//console.log(returnChoice());
 let pcChoice = returnChoice();
-let userChoice = returnChoice(Number(window.prompt("Pick your weapon (rock - 0, paper - 1, scissors - 2")));
+let userChoice = returnChoice(Number(window.prompt("Pick your weapon (rock - 0, paper - 1, scissors - 2)")));
 
 console.log(`computer: ${pcChoice}, me: ${userChoice}`);
 // look up case/ switch statements
+
+if (userChoice === pcChoice) {
+    console.log('It s a draw');
+}else if (userChoice === 'rock' && pcChoice === 'paper') {
+    console.log('You win!');
+}else if (userChoice === 'paper' && pcChoice === 'rock') {
+    console.log('You loose!');
+}else if (userChoice === 'rock' && pcChoice === 'scissors') {
+    console.log('You win!');
+}else if (userChoice === 'scissors' && pcChoice === 'rock') {
+    console.log('You loose!');
+}else if (userChoice === 'paper' && pcChoice === 'scissors') {
+    console.log('You loose!');
+}else if (userChoice === 'scissors' && pcChoice === 'paper') {
+    console.log('You win!');
+};
+
+/*
+switch (userChoice) {
+  case pcChoice:
+    console.log('It s a draw');
+    break;
+  case 'Mangoes':
+  case 'Papayas':
+    console.log('Mangoes and papayas are $2.79 a pound.');
+    // expected output: "Mangoes and papayas are $2.79 a pound."
+    break;
+  default:
+    console.log(`Sorry, we are out of ${expr}.`);
+}
+*/
+
